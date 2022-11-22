@@ -3,6 +3,7 @@ import time
 import cv2
 import webbrowser
 
+# 설문조사 만들고 해당 url로 수정
 EXPERIMENTS = [
     ["HAHV", "./avatars/HAHV.mp4", "./videos/HAHV.mp4", "https://www.naver.com"], 
     ["HALV", "./avatars/HALV.mp4", "./videos/HALV.mp4", "https://wikidocs.net/137924"], 
@@ -10,12 +11,18 @@ EXPERIMENTS = [
     ["LALV", "./avatars/LALV.mp4", "./videos/LALV.mp4", "https://appia.tistory.com/146"]
 ]
 
+# 웹캠 열고 저장하는 함수 추가
+# 로그도 찍어주는 함수 추가
 class Experiments:
     def __init__(self, experiments: str):
         self.experiments = experiments
         random.shuffle(self.experiments)
     
+    # time.sleep(180)
+    # 웹캠 시작 3분 후로
+    # 로그도 추가
     def __call__(self):
+        # 웹캠 시작
         count = 0
         while True:
             if count > 3:
@@ -29,10 +36,12 @@ class Experiments:
             count = count + 1
     
     @staticmethod
+    # 프린트가 아니라 emotion label이 log로 떨어지게 수정
     def print_emotion_label(emotion_label: str):
         print(emotion_label)
         
     @staticmethod
+    # 소리도 나오게 수정
     def show_avatar(stimulation: str):
         avatar = cv2.VideoCapture(stimulation)
         
@@ -52,6 +61,7 @@ class Experiments:
         cv2.destroyAllWindows()
         
     @staticmethod
+    # 소리도 나오게 수정
     def show_video(stimulation: str):
         video = cv2.VideoCapture(stimulation)
         
