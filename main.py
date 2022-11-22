@@ -84,6 +84,7 @@ class Experiments:
     def open_survey(url: str):
         webbrowser.open(url)
         
+# argparse 추가해서 피험자 이름 인자 추가하면 거기에 맞게 영상 저장되게
 if __name__ == "__main__":
     experiments = Experiments(EXPERIMENTS)
     experiments()
